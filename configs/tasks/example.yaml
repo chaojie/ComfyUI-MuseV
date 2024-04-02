@@ -1,0 +1,215 @@
+# - name: task_name
+#   condition_images: vision condition images path
+#   video_path: str, default null, used for video2video 
+#   prompt: text to guide image generation
+#   ipadapter_image: image_path for IP-Apdater
+#   refer_image: image_path for referencenet, generally speaking, same as ipadapter_image
+#   height: int # The shorter the image size, the larger the motion amplitude, and the lower video quality.
+#   width: int #  The longer the W&H, the smaller the motion amplitude, and the higher video quality.
+#   img_length_ratio: float, generation video size is (height, width) * img_length_ratio
+
+# text/image2video
+- condition_images: ./data/images/yongen.jpeg
+  eye_blinks_factor: 1.8
+  height: 1308
+  img_length_ratio: 0.957
+  ipadapter_image: ${.condition_images}
+  name: yongen
+  prompt: (masterpiece, best quality, highres:1),(1girl, solo:1),(beautiful face,
+    soft skin, costume:1),(eye blinks:{eye_blinks_factor}),(head wave:1.3)
+  refer_image: ${.condition_images}
+  video_path: null
+  width: 736
+- condition_images: ./data/images/jinkesi2.jpeg
+  eye_blinks_factor: 1.8
+  height: 714
+  img_length_ratio: 1.25
+  ipadapter_image: ${.condition_images}
+  name: jinkesi2
+  prompt: (masterpiece, best quality, highres:1),(1girl, solo:1),(beautiful face,
+    soft skin, costume:1),(eye blinks:{eye_blinks_factor}),(head wave:1.3)
+  refer_image: ${.condition_images}
+  video_path: null
+  width: 563
+- condition_images: ./data/images/seaside4.jpeg
+  eye_blinks_factor: 1.8
+  height: 317
+  img_length_ratio: 2.221
+  ipadapter_image: ${.condition_images}
+  name: seaside4
+  prompt: (masterpiece, best quality, highres:1), peaceful beautiful sea scene
+  refer_image: ${.condition_images}
+  video_path: null
+  width: 564
+- condition_images: ./data/images/seaside_girl.jpeg
+  eye_blinks_factor: 1.8
+  height: 736
+  img_length_ratio: 0.957
+  ipadapter_image: ${.condition_images}
+  name: seaside_girl
+  prompt: (masterpiece, best quality, highres:1), peaceful beautiful sea scene
+  refer_image: ${.condition_images}
+  video_path: null
+  width: 736
+- condition_images: ./data/images/boy_play_guitar.jpeg
+  eye_blinks_factor: 1.8
+  height: 846
+  img_length_ratio: 1.248
+  ipadapter_image: ${.condition_images}
+  name: boy_play_guitar
+  prompt: (masterpiece, best quality, highres:1), playing guitar
+  refer_image: ${.condition_images}
+  video_path: null
+  width: 564
+- condition_images: ./data/images/girl_play_guitar2.jpeg
+  eye_blinks_factor: 1.8
+  height: 1002
+  img_length_ratio: 1.248
+  ipadapter_image: ${.condition_images}
+  name: girl_play_guitar2
+  prompt: (masterpiece, best quality, highres:1), playing guitar
+  refer_image: ${.condition_images}
+  video_path: null
+  width: 564
+- condition_images: ./data/images/boy_play_guitar2.jpeg
+  eye_blinks_factor: 1.8
+  height: 630
+  img_length_ratio: 1.676
+  ipadapter_image: ${.condition_images}
+  name: boy_play_guitar2
+  prompt: (masterpiece, best quality, highres:1), playing guitar
+  refer_image: ${.condition_images}
+  video_path: null
+  width: 420
+- condition_images: ./data/images/girl_play_guitar4.jpeg
+  eye_blinks_factor: 1.8
+  height: 846
+  img_length_ratio: 1.248
+  ipadapter_image: ${.condition_images}
+  name: girl_play_guitar4
+  prompt: (masterpiece, best quality, highres:1), playing guitar
+  refer_image: ${.condition_images}
+  video_path: null
+  width: 564
+- condition_images: ./data/images/dufu.jpeg
+  eye_blinks_factor: 1.8
+  height: 500
+  img_length_ratio: 1.495
+  ipadapter_image: ${.condition_images}
+  name: dufu
+  prompt: (masterpiece, best quality, highres:1),(1girl, solo:1),(beautiful face,
+    soft skin, costume:1),(eye blinks:{eye_blinks_factor}),(head wave:1.3)
+  refer_image: ${.condition_images}
+  video_path: null
+  width: 471
+- condition_images: ./data/images/Mona_Lisa..jpg
+  eye_blinks_factor: 1.8
+  height: 894
+  img_length_ratio: 1.173
+  ipadapter_image: ${.condition_images}
+  name: Mona_Lisa.
+  prompt: (masterpiece, best quality, highres:1),(1girl, solo:1),(beautiful face,
+    soft skin, costume:1),(eye blinks:{eye_blinks_factor}),(head wave:1.3)
+  refer_image: ${.condition_images}
+  video_path: null
+  width: 600
+- condition_images: ./data/images/Portrait-of-Dr.-Gachet.jpg
+  eye_blinks_factor: 1.8
+  height: 985
+  img_length_ratio: 0.88
+  ipadapter_image: ${.condition_images}
+  name: Portrait-of-Dr.-Gachet
+  prompt: (masterpiece, best quality, highres:1),(1girl, solo:1),(beautiful face,
+    soft skin, costume:1),(eye blinks:{eye_blinks_factor}),(head wave:1.3)
+  refer_image: ${.condition_images}
+  video_path: null
+  width: 800
+- condition_images: ./data/images/Self-Portrait-with-Cropped-Hair.jpg
+  eye_blinks_factor: 1.8
+  height: 565
+  img_length_ratio: 1.246
+  ipadapter_image: ${.condition_images}
+  name: Self-Portrait-with-Cropped-Hair
+  prompt: (masterpiece, best quality, highres:1),(1girl, solo:1),(beautiful face,
+    soft skin, costume:1),(eye blinks:{eye_blinks_factor}),(head wave:1.3)
+  refer_image: ${.condition_images}
+  video_path: null
+  width: 848
+- condition_images: ./data/images/The-Laughing-Cavalier.jpg
+  eye_blinks_factor: 1.8
+  height: 1462
+  img_length_ratio: 0.587
+  ipadapter_image: ${.condition_images}
+  name: The-Laughing-Cavalier
+  prompt: (masterpiece, best quality, highres:1),(1girl, solo:1),(beautiful face,
+    soft skin, costume:1),(eye blinks:{eye_blinks_factor}),(head wave:1.3)
+  refer_image: ${.condition_images}
+  video_path: null
+  width: 1200
+
+# scene
+- condition_images: ./data/images/waterfall4.jpeg
+  eye_blinks_factor: 1.8
+  height: 846
+  img_length_ratio: 1.248
+  ipadapter_image: ${.condition_images}
+  name: waterfall4
+  prompt: (masterpiece, best quality, highres:1), peaceful beautiful waterfall, an
+    endless waterfall
+  refer_image: ${.condition_images}
+  video_path: null
+  width: 564
+- condition_images: ./data/images/river.jpeg
+  eye_blinks_factor: 1.8
+  height: 736
+  img_length_ratio: 0.957
+  ipadapter_image: ${.condition_images}
+  name: river
+  prompt: (masterpiece, best quality, highres:1), peaceful beautiful river
+  refer_image: ${.condition_images}
+  video_path: null
+  width: 736
+- condition_images: ./data/images/seaside2.jpeg
+  eye_blinks_factor: 1.8
+  height: 1313
+  img_length_ratio: 0.957
+  ipadapter_image: ${.condition_images}
+  name: seaside2
+  prompt: (masterpiece, best quality, highres:1), peaceful beautiful sea scene
+  refer_image: ${.condition_images}
+  video_path: null
+  width: 736
+
+# video2video
+- name: "dance1"
+  prompt: "(masterpiece, best quality, highres:1) , a girl is dancing, wearing a dress made of stars, animation"
+  video_path:  ./data/source_video/video1_girl_poseseq.mp4 
+  condition_images: ./data/images/spark_girl.png
+  refer_image: ${.condition_images}
+  ipadapter_image: ${.condition_images}
+  height: 960
+  width: 512
+  img_length_ratio: 1.0
+  video_is_middle: True # if true, means video_path is controlnet condition, not natural rgb video
+
+- name: "dance2"
+  prompt: "(best quality), ((masterpiece)), (highres), illustration, original, extremely detailed wallpaper"
+  video_path:  ./data/source_video/video1_girl_poseseq.mp4 
+  condition_images: ./data/images/cyber_girl.png
+  refer_image: ${.condition_images}
+  ipadapter_image: ${.condition_images}
+  height: 960
+  width: 512
+  img_length_ratio: 1.0
+  video_is_middle: True # if true, means video_path is controlnet condition, not natural rgb video
+
+- name: "duffy"
+  prompt: "(best quality), ((masterpiece)), (highres), illustration, original, extremely detailed wallpaper"
+  video_path: ./data/source_video/pose-for-Duffy-4.mp4
+  condition_images: ./data/images/duffy.png
+  refer_image: ${.condition_images}
+  ipadapter_image: ${.condition_images}
+  height: 1280
+  width: 704
+  img_length_ratio: 1.0
+  video_is_middle: True  # if true, means video_path is controlnet condition, not natural rgb video
