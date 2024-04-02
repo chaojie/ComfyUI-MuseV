@@ -48,10 +48,10 @@
         1038,
         246
       ],
-      "size": {
-        "0": 315,
-        "1": 218
-      },
+      "size": [
+        315,
+        709.625
+      ],
       "flags": {},
       "order": 2,
       "mode": 0,
@@ -87,13 +87,21 @@
         "frame_rate": 8,
         "loop_count": 0,
         "filename_prefix": "AnimateDiff",
-        "format": "image/gif",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
         "pingpong": false,
         "save_output": true,
         "videopreview": {
           "hidden": false,
           "paused": false,
-          "params": {}
+          "params": {
+            "filename": "AnimateDiff_00116.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4"
+          }
         }
       }
     },
@@ -106,7 +114,7 @@
       ],
       "size": {
         "0": 315,
-        "1": 274
+        "1": 346
       },
       "flags": {},
       "order": 1,
@@ -137,12 +145,15 @@
         1,
         120,
         77,
-        "randomize",
+        "fixed",
         563,
         714,
         30,
         10,
-        "majicmixRealv6Fp16"
+        1.5,
+        1.5,
+        "majicmixRealv6Fp16",
+        true
       ]
     }
   ],
