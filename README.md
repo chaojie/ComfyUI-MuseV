@@ -13,4 +13,8 @@ https://github.com/chaojie/ComfyUI-MuseV/blob/main/wf.json
 
 <img src="wf.png" raw=true>
 
+https://github.com/chaojie/ComfyUI-MuseV/blob/main/wf_vid2vid.json
+
+<img src="wf_vid2vid.png" raw=true>
+
 ## [MuseV](https://github.com/TMElyralab/MuseV)
