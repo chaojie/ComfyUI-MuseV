@@ -1448,6 +1448,21 @@ class MuseVRun:
                     #print(f'{out_videos}')
                     return torch.from_numpy(out_videos).permute(0,2,3,4,1)
                     '''
+                    outframes = []
+                    out_videos = rearrange(out_videos, f"b c t h w -> b t h w c")
+                    for i, video in enumerate(out_videos[0]):
+                        video=np.clip(video*255.0, 0, 255).astype(np.uint8)
+                        image=Image.fromarray(cv2.cvtColor(video,cv2.COLOR_BGR2RGB))
+                        image_tensor_out = torch.tensor(np.array(image).astype(np.float32) / 255.0)  # Convert back to CxHxW
+                        image_tensor_out = torch.unsqueeze(image_tensor_out, 0)
+                        outframes.append(image_tensor_out)
+
+                        image=Image.fromarray(video)
+                        image_tensor_out = torch.tensor(np.array(image).astype(np.float32) / 255.0)  # Convert back to CxHxW
+                        image_tensor_out = torch.unsqueeze(image_tensor_out, 0)
+                        outframes.append(image_tensor_out)
+                    return (torch.cat(tuple(outframes), dim=0),) 
+                    
                     texts = ["out"]
                     save_videos_grid_with_opencv(
                         out,
@@ -2328,6 +2343,23 @@ class MuseVRunVid2Vid:
                     out = np.concatenate(batch, axis=0)
                     #print(f'{out_videos}')
                     return torch.from_numpy(out_videos).permute(0,2,3,4,1)
+                    '''
+                    outframes = []
+                    out_videos = rearrange(out_videos, f"b c t h w -> b t h w c")
+                    for i, video in enumerate(out_videos[0]):
+                        print(video.shape)
+                        video=np.clip(video*255.0, 0, 255).astype(np.uint8)
+                        image=Image.fromarray(cv2.cvtColor(video,cv2.COLOR_BGR2RGB))
+                        image_tensor_out = torch.tensor(np.array(image).astype(np.float32) / 255.0)  # Convert back to CxHxW
+                        image_tensor_out = torch.unsqueeze(image_tensor_out, 0)
+                        outframes.append(image_tensor_out)
+                        
+                        image=Image.fromarray(video)
+                        image_tensor_out = torch.tensor(np.array(image).astype(np.float32) / 255.0)  # Convert back to CxHxW
+                        image_tensor_out = torch.unsqueeze(image_tensor_out, 0)
+                        outframes.append(image_tensor_out)
+                    return (torch.cat(tuple(outframes), dim=0),) 
+                    '''
 
 class VHS_FILENAMES_STRING_MuseV:
     @classmethod
@@ -2339,7 +2371,7 @@ class VHS_FILENAMES_STRING_MuseV:
                 }
 
     RETURN_TYPES = ("STRING",)
-    CATEGORY = "DragAnything"
+    CATEGORY = "MuseV"
     FUNCTION = "run"
 
     def run(self, filenames):

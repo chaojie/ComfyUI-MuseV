@@ -9,6 +9,7 @@ import cv2
 from PIL import Image
 
 from tqdm import tqdm
+import comfy.utils
 from einops import rearrange
 import webp
 import subprocess
@@ -327,11 +328,13 @@ def ddim_loop(pipeline, ddim_scheduler, latent, num_inv_steps, prompt):
     uncond_embeddings, cond_embeddings = context.chunk(2)
     all_latent = [latent]
     latent = latent.clone().detach()
+    pbar = comfy.utils.ProgressBar(num_inv_steps)
     for i in tqdm(range(num_inv_steps)):
         t = ddim_scheduler.timesteps[len(ddim_scheduler.timesteps) - i - 1]
         noise_pred = get_noise_pred_single(latent, t, cond_embeddings, pipeline.unet)
         latent = next_step(noise_pred, t, latent, ddim_scheduler)
         all_latent.append(latent)
+        pbar.update(1)
     return all_latent
 
 

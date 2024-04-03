@@ -40,6 +40,8 @@ from ..stable_diffusion import StableDiffusionPipelineOutput
 from ..stable_diffusion.safety_checker import StableDiffusionSafetyChecker
 from .multicontrolnet import MultiControlNetModel
 
+import comfy.utils
+
 
 logger = logging.get_logger(__name__)  # pylint: disable=invalid-name
 
@@ -1118,6 +1120,7 @@ class StableDiffusionControlNetImg2ImgPipeline(
 
         # 8. Denoising loop
         num_warmup_steps = len(timesteps) - num_inference_steps * self.scheduler.order
+        pbar = comfy.utils.ProgressBar(num_inference_steps)
         with self.progress_bar(total=num_inference_steps) as progress_bar:
             for i, t in enumerate(timesteps):
                 # expand the latents if we are doing classifier free guidance
@@ -1191,6 +1194,7 @@ class StableDiffusionControlNetImg2ImgPipeline(
                 # call the callback, if provided
                 if i == len(timesteps) - 1 or ((i + 1) > num_warmup_steps and (i + 1) % self.scheduler.order == 0):
                     progress_bar.update()
+                    pbar.update(1)
                     if callback is not None and i % callback_steps == 0:
                         step_idx = i // getattr(self.scheduler, "order", 1)
                         callback(step_idx, t, latents)
