@@ -2,5 +2,6 @@ h5py
 moviepy
 cuid
 webp
+decord
 git+https://github.com/tencent-ailab/IP-Adapter.git@main
 git+https://github.com/openai/CLIP.git@main
