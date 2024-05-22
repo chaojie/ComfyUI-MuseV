@@ -1,0 +1,15 @@
+[project]
+name = "comfyui-musev"
+description = "ComfyUI MuseV"
+version = "1.0.0"
+license = "LICENSE"
+dependencies = ["h5py", "moviepy", "cuid", "webp", "decord", "git+https://github.com/tencent-ailab/IP-Adapter.git@main", "git+https://github.com/openai/CLIP.git@main"]
+
+[project.urls]
+Repository = "https://github.com/chaojie/ComfyUI-MuseV"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-MuseV"
+Icon = ""
