@@ -5,7 +5,7 @@ from typing import Any, Iterator, List, Literal, Sequence
 import math
 from einops import rearrange
 
-from moviepy.editor import VideoFileClip
+from moviepy import VideoFileClip
 import torchvision
 from torch.utils.data.dataset import Dataset, IterableDataset
 from PIL import Image

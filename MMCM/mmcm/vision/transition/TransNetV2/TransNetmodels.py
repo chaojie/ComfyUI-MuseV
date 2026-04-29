@@ -6,7 +6,7 @@ import torch.nn.functional as F
 import ffmpeg
 import numpy as np
 import cv2
-from moviepy.editor import VideoFileClip
+from moviepy import VideoFileClip
 
 from .utils import get_frames
 

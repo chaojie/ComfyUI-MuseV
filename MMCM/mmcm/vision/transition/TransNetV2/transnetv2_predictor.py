@@ -10,7 +10,7 @@ import librosa
 import soundfile as sf
 import numpy as np
 import torch
-from moviepy.editor import *
+from moviepy import *
 
 from .TransNetmodels import TransNetV2
 from ...video_map.video_meta_info import VideoMetaInfo

@@ -60,11 +60,19 @@ class BaseOutput(OrderedDict):
         if is_torch_available():
             import torch.utils._pytree
 
-            torch.utils._pytree._register_pytree_node(
-                cls,
-                torch.utils._pytree._dict_flatten,
-                lambda values, context: cls(**torch.utils._pytree._dict_unflatten(values, context)),
-            )
+            # Use non-deprecated API if available (PyTorch >= 2.0)
+            if hasattr(torch.utils._pytree, "register_pytree_node"):
+                torch.utils._pytree.register_pytree_node(
+                    cls,
+                    torch.utils._pytree._dict_flatten,
+                    lambda values, context: cls(**torch.utils._pytree._dict_unflatten(values, context)),
+                )
+            else:
+                torch.utils._pytree._register_pytree_node(
+                    cls,
+                    torch.utils._pytree._dict_flatten,
+                    lambda values, context: cls(**torch.utils._pytree._dict_unflatten(values, context)),
+                )
 
     def __post_init__(self) -> None:
         class_fields = fields(self)

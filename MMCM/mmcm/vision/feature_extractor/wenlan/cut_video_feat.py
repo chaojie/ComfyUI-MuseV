@@ -20,7 +20,7 @@ import random
 import pdb
 from torchvision.ops import nms
 import traceback
-from moviepy.editor import VideoFileClip
+from moviepy import VideoFileClip
 import hashlib
 
 from bbox_extractor.bbox_extractor import BboxExtractor

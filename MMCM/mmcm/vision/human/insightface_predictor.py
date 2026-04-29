@@ -13,7 +13,7 @@ import traceback
 import hashlib
 
 import cv2
-from moviepy.editor import VideoFileClip
+from moviepy import VideoFileClip
 
 # TODO
 # 该部分与源代码相比，修改了insight_face的输出接口，将性别分数透传出来，用于后续更精准的决策

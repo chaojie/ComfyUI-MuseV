@@ -1,4 +1,4 @@
-from moviepy.editor import (
+from moviepy import (
     ColorClip,
     concatenate_videoclips,
     AudioFileClip,

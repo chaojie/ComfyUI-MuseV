@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Dict, List
 
-from moviepy.editor import VideoFileClip
+from moviepy import VideoFileClip
 
 from ...data import (
     MediaMap,

@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 import torch
 from torch.utils.data import Dataset, BatchSampler, Sampler
-from moviepy.editor import VideoFileClip
+from moviepy import VideoFileClip
 
 
 # TODO: 待后续设计、处理

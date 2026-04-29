@@ -2,6 +2,6 @@ h5py
 moviepy
 cuid
 webp
-decord
+decord # Or install eva-decord for apple silicon
 git+https://github.com/tencent-ailab/IP-Adapter.git@main
 git+https://github.com/openai/CLIP.git@main

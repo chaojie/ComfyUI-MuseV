@@ -24,15 +24,31 @@ from pathlib import Path
 from typing import Dict, Optional, Union
 from uuid import uuid4
 
-from huggingface_hub import (
-    HfFolder,
-    ModelCard,
-    ModelCardData,
-    create_repo,
-    hf_hub_download,
-    upload_folder,
-    whoami,
-)
+try:
+    from huggingface_hub import (
+        HfFolder,
+        ModelCard,
+        ModelCardData,
+        create_repo,
+        hf_hub_download,
+        upload_folder,
+        whoami,
+    )
+except Exception:
+    from huggingface_hub import (
+        ModelCard,
+        ModelCardData,
+        create_repo,
+        hf_hub_download,
+        upload_folder,
+        whoami,
+    )
+    from huggingface_hub.utils import get_token as _hf_get_token
+
+    class HfFolder:
+        @staticmethod
+        def get_token():
+            return _hf_get_token()
 from huggingface_hub.file_download import REGEX_COMMIT_HASH
 from huggingface_hub.utils import (
     EntryNotFoundError,

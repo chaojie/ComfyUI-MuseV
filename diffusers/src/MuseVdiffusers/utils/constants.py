@@ -14,7 +14,12 @@
 import importlib
 import os
 
-from huggingface_hub.constants import HUGGINGFACE_HUB_CACHE, hf_cache_home
+# `hf_cache_home` was removed/renamed in newer huggingface_hub releases. Import it
+# if available, otherwise fall back to `HF_HOME` which provides the same base path.
+try:
+    from huggingface_hub.constants import HUGGINGFACE_HUB_CACHE, hf_cache_home
+except Exception:
+    from huggingface_hub.constants import HUGGINGFACE_HUB_CACHE, HF_HOME as hf_cache_home
 from packaging import version
 
 from ..dependency_versions_check import dep_version_check
