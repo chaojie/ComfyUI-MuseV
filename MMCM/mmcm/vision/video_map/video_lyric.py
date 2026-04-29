@@ -3,7 +3,7 @@ from typing import Tuple
 import logging
 
 from librosa.core.audio import get_duration
-from moviepy.editor import CompositeVideoClip, concatenate_videoclips, TextClip
+from moviepy import CompositeVideoClip, concatenate_videoclips, TextClip
 import moviepy as mvp
 
 ignored_log = logging.getLogger("PIL")

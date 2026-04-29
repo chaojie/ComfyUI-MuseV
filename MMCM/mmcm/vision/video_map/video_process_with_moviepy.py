@@ -4,7 +4,7 @@ import logging
 
 import numpy as np
 import cv2
-from moviepy.editor import (
+from moviepy import (
     VideoFileClip,
     VideoClip,
     concatenate_videoclips,

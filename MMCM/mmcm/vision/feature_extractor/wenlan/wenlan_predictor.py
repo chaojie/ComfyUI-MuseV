@@ -14,7 +14,7 @@ import pdb
 import traceback
 import hashlib
 
-from moviepy.editor import VideoFileClip
+from moviepy import VideoFileClip
 from tqdm import tqdm
 import pandas as pd
 import numpy as np

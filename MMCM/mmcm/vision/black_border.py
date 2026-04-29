@@ -4,7 +4,7 @@ import traceback
 import argparse
 import os
 
-from moviepy.editor import VideoFileClip
+from moviepy import VideoFileClip
 import numpy as np
 
 

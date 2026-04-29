@@ -3,7 +3,7 @@ import sys
 import json
 
 import cv2
-from moviepy.editor import VideoFileClip
+from moviepy import VideoFileClip
 
 
 def vis_video_map(video_path, video_map, save_path):

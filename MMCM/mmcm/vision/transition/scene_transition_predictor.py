@@ -2,7 +2,7 @@ from __future__ import print_function
 
 import traceback
 from typing import Dict
-from moviepy.editor import VideoFileClip
+from moviepy import VideoFileClip
 import hashlib
 import json
 import numpy as np

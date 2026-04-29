@@ -13,7 +13,7 @@ from transformers import (
 import torch
 import numpy as np
 from numpy import ndarray
-from moviepy.editor import VideoFileClip
+from moviepy import VideoFileClip
 
 from ..utils.path_util import get_video_signature
 from ..video_map.video_map import VideoMap

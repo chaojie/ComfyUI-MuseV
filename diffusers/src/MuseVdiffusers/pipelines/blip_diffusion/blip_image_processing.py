@@ -29,9 +29,13 @@ from transformers.image_utils import (
     infer_channel_dimension_format,
     is_scaled_image,
     make_list_of_images,
-    to_numpy_array,
     valid_images,
 )
+
+try:
+    from transformers.image_utils import to_numpy_array
+except ImportError:
+    from transformers.models.clip.image_processing_clip import to_numpy_array
 from transformers.utils import TensorType, is_vision_available, logging
 
 from diffusers.utils import numpy_to_pil

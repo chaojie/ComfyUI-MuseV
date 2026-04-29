@@ -24,8 +24,33 @@ import sys
 from pathlib import Path
 from typing import Dict, Optional, Union
 from urllib import request
+import hashlib
 
-from huggingface_hub import HfFolder, cached_download, hf_hub_download, model_info
+try:
+    from huggingface_hub import HfFolder, cached_download, hf_hub_download, model_info
+except Exception:
+    from huggingface_hub import hf_hub_download, model_info
+    from huggingface_hub.utils import get_token as _hf_get_token
+
+    def cached_download(url, cache_dir=None, force_download=False, proxies=None, resume_download=False, local_files_only=False, use_auth_token=False):
+        """Simple fallback to download a URL into a cache directory and return the local path."""
+        if cache_dir is None:
+            cache_dir = os.path.join(os.path.expanduser("~"), ".cache", "huggingface", "hub")
+        os.makedirs(cache_dir, exist_ok=True)
+        # keep extension if present
+        url_path = url.split("?")[0]
+        ext = os.path.splitext(url_path)[1] or ""
+        name = hashlib.sha256(url.encode()).hexdigest() + ext
+        path = os.path.join(cache_dir, name)
+        if not os.path.exists(path) or force_download:
+            with request.urlopen(url) as r, open(path, "wb") as f:
+                f.write(r.read())
+        return path
+
+    class HfFolder:
+        @staticmethod
+        def get_token():
+            return _hf_get_token()
 from packaging import version
 
 from .. import __version__

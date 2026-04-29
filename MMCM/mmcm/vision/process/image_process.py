@@ -12,7 +12,12 @@ import cv2
 import torch
 
 from mmcm.vision.utils.data_type_util import convert_images
-from transformers.models.clip.image_processing_clip import to_numpy_array
+
+try:
+    from transformers.models.clip.image_processing_clip import to_numpy_array
+except ImportError:
+    from transformers.image_utils import to_numpy_array
+
 from ..utils.vision_util import round_up_to_even
 
 

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import List, Dict
 
-from moviepy.editor import concatenate_audioclips, AudioClip, AudioFileClip
+from moviepy import concatenate_audioclips, AudioClip, AudioFileClip
 
 from ...data import MediaMap, MediaMapEmb, MetaInfo, MediaMapSeq
 from ...data.clip.clip_process import find_time_by_stage

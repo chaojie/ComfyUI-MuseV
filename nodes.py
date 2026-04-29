@@ -3,22 +3,31 @@ import copy
 
 
 import os
+import sys
+from pathlib import Path
+
 import folder_paths
+
 comfy_path = os.path.dirname(folder_paths.__file__)
 diffusers_path = folder_paths.get_folder_paths("diffusers")[0]
 
-MuseVCheckPointDir = os.path.join(
-    diffusers_path, "TMElyralab/MuseV"
-)
+MuseVCheckPointDir = os.path.join(diffusers_path, "TMElyralab/MuseV")
 
-import sys
-sys.path.insert(0,f'{comfy_path}/custom_nodes/ComfyUI-MuseV')
-sys.path.insert(0,f'{comfy_path}/custom_nodes/ComfyUI-MuseV/MMCM')
-sys.path.insert(0,f'{comfy_path}/custom_nodes/ComfyUI-MuseV/diffusers/src')
-sys.path.insert(0,f'{comfy_path}/custom_nodes/ComfyUI-MuseV/controlnet_aux/src')
+EXTENSION_DIR = Path(__file__).resolve().parent
+
+
+def _add_sys_path(path: Path) -> None:
+    path_str = str(path)
+    if path_str not in sys.path:
+        sys.path.insert(0, path_str)
+
+
+# Ensure local packages are importable when loaded by ComfyUI.
+_add_sys_path(EXTENSION_DIR)
+_add_sys_path(EXTENSION_DIR / "MMCM")
+_add_sys_path(EXTENSION_DIR / "diffusers" / "src")
+_add_sys_path(EXTENSION_DIR / "controlnet_aux" / "src")
 print(sys.path)
-
-from pathlib import Path
 import logging
 from collections import OrderedDict
 from pprint import pprint
